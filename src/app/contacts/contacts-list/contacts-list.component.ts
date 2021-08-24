@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ContactModel } from 'src/app/models/contact-model';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-contacts-list',
@@ -8,11 +9,11 @@ import { ContactModel } from 'src/app/models/contact-model';
 })
 export class ContactsListComponent implements OnInit {
 
-  contacts: {}[] = [{id: 4,firstName: 'Someone',surname: 'Different', phoneNumber: 334},{id: 4,firstName: 'firstName',surname: 'surname', phoneNumber: 3453453},{id: 4,firstName: 'firstName',surname: 'surname', phoneNumber: 3453453}];
+  contacts: {}[] = this.contactsService.contacts;
 
   @Input() contactsCount: number = this.contacts.length;
 
-  constructor() { }
+  constructor(private contactsService: ContactsService) { }
 
   ngOnInit():void {
     this.loadContacts();
