@@ -1,1 +1,48 @@
-<p>contacts-list works!</p>
+<table class="table table-striped table-sm table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Lp.</th>
+      <th>Nazwisko</th>
+      <th>Imię</th>
+      <th>Nr Telefonu</th>
+      <th>Akcja</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts; let i = index" class="pe-auto">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.surname }}</td>
+      <td>{{ contact.phoneNumber }}</td>
+      <td>
+        <button
+          class="btn btn-success btn-sm me-3"
+          (click)="goToContactDetails(i, $event)"
+        >
+          Edytuj
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="removeContact()">
+          Usuń
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-contacts-count [numberOfContacts]="contactsCount"></app-contacts-count>
+<div *ngIf="contacts.length > 0; else noContactsAlert"></div>
+<ng-template #noContactsAlert>
+  <div class="alert alert-warning show" role="alert">
+    Aktualnie brak kontatków.
+  </div>
+</ng-template>
+
+<button class="btn btn-success btn-sm me-3">Dodaj kontakt</button>
+
+<button (click)="hideContacts()" class="btn btn-warning btn-sm me-3">
+  Ukryj kontakty
+</button>
+
+<button (click)="showContacts()" class="btn btn-primary btn-sm me-3">
+  Pokaż kontakty
+</button>
