@@ -26,7 +26,6 @@ export class ContactEditComponent implements OnInit {
   loadContact() {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
-      console.log(this.id);
     });
   }
   private initForm() {
@@ -40,7 +39,6 @@ export class ContactEditComponent implements OnInit {
     contactSurname = contact.surname;
     contactNumber = contact.phone;
     contactEmail = contact.email;
-    console.log(contactName, contactSurname, contactNumber);
     this.editForm = new FormGroup({
       name: new FormControl(contactName, Validators.required),
       surname: new FormControl(contactSurname, Validators.required),
