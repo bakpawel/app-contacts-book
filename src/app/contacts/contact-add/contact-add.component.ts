@@ -20,7 +20,7 @@ export class ContactAddComponent implements OnInit {
     this.newContactForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       surname: new FormControl(null, Validators.required),
-      phoneNumber: new FormControl(null, Validators.pattern('[0-9]{0,9}')),
+      phone: new FormControl(null, Validators.pattern('[0-9]{0,15}')),
       email: new FormControl(null, Validators.email),
     });
   }

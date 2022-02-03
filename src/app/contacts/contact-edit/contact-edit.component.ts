@@ -38,16 +38,13 @@ export class ContactEditComponent implements OnInit {
     const contact = this.contactsService.getContact(this.id);
     contactName = contact.name;
     contactSurname = contact.surname;
-    contactNumber = contact.phoneNumber;
+    contactNumber = contact.phone;
     contactEmail = contact.email;
     console.log(contactName, contactSurname, contactNumber);
     this.editForm = new FormGroup({
       name: new FormControl(contactName, Validators.required),
       surname: new FormControl(contactSurname, Validators.required),
-      phoneNumber: new FormControl(
-        contactNumber,
-        Validators.pattern('[0-9]{0,9}')
-      ),
+      phone: new FormControl(contactNumber, Validators.pattern('[0-9]{0,15}')),
       email: new FormControl(contactEmail, Validators.email),
     });
   }
