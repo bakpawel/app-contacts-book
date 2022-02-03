@@ -1,0 +1,54 @@
+<app-header><p content>Edycja kontaktu</p></app-header>
+
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="row form-group">
+    <div class="col-md-12 col-xl-4">
+      <label for="name" class="m-2">Imię</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-12 col-xl-4">
+      <label for="surname" class="m-2">Nazwisko</label>
+      <input
+        type="text"
+        id="surname"
+        formControlName="surname"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-12 col-xl-4">
+      <label for="phoneNumber" class="m-2">Telefon </label>
+      <input
+        type="text"
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-12 col-xl-4">
+      <label for="email" class="m-2">E-mail </label>
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        class="form-control"
+      />
+    </div>
+    <div class="col-xs-12 mt-3">
+      <button
+        type="submit"
+        class="btn btn-success m-2"
+        [disabled]="!editForm.valid"
+      >
+        Zapisz
+      </button>
+      <button type="button" class="btn btn-danger m-2" (click)="onBack()">
+        Anuluj
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,7 @@
+<p>Szczegóły dla kontaktu {{ id + 1 }}</p>
+
+<p>Nazwisko: {{ contactDetails.surname }}</p>
+<p>Imię: {{ contactDetails.name }}</p>
+<p *ngIf="contactDetails.phone">Telefon: {{ contactDetails.phoneNumber }}</p>
+<p *ngIf="contactDetails.email">Email: {{ contactDetails.email }}</p>
+<button class="btn btn-primary mb-3" [routerLink]="['/contacts']">Ukryj</button>

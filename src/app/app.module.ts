@@ -5,15 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactsService } from './contacts/contacts.service';
 import { ContactsModule } from './contacts/contacts.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ContactsModule
+    ContactsModule,
+    HttpClientModule
   ],
   providers: [ContactsService],
   bootstrap: [AppComponent]

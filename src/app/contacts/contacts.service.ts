@@ -1,13 +1,42 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { ContactModel } from '../models/contact-model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ContactsService {
+  contactChanged = new Subject();
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  contacts: {}[] = [{id: 4,firstName: 'Nea',surname: 'Different', phoneNumber: 334},{id: 4,firstName: 'Someeee',surname: 'surname', phoneNumber: 3453453},{id: 4,firstName: 'firstName',surname: 'surname', phoneNumber: 3453453}];
+  contacts: ContactModel[] = [];
 
+  getContact(index: number): any {
+    return this.contacts[index];
+  }
+  getContacts() {
+    return this.contacts.slice();
+  }
 
+  setContacts(contacts: ContactModel[]) {
+    this.contacts = contacts;
+    this.contactChanged.next(this.contacts.slice());
+  }
+  addContact(contact) {
+    this.contacts.push(contact);
+    this.contactChanged.next(this.contacts.slice());
+  }
+
+  updateContact(index, updatedContact) {
+    this.contacts[index] = updatedContact;
+    this.contactChanged.next(this.contacts.slice());
+  }
+
+  deleteContact(index: number) {
+    console.log('to jest index' + index);
+    this.contacts.splice(index, 1);
+    this.contactChanged.next(this.contacts.slice());
+  }
 }
