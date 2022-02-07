@@ -69,5 +69,6 @@ export class ContactsListComponent implements OnInit, OnDestroy {
     e.stopPropagation();
     this.contactsService.deleteContact(index);
     this.contactsCount = this.contacts.length;
+    this.router.navigate(['/contacts']);
   }
 }
