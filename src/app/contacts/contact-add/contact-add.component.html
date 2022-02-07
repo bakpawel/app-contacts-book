@@ -3,6 +3,24 @@
 <form [formGroup]="newContactForm" (ngSubmit)="onSubmit()">
   <div class="row form-group">
     <div class="col-md-12 col-xl-4">
+      <label for="name" class="m-2">Imię</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        placeholder="Imię"
+        formControlName="name"
+      />
+      <span
+        *ngIf="
+          !newContactForm.get('name').valid &&
+          newContactForm.get('name').touched
+        "
+        class="help-block"
+        >To pole jest wymagane!</span
+      >
+    </div>
+    <div class="col-md-12 col-xl-4">
       <label for="surname" class="m-2">Nazwisko</label>
       <input
         type="text"
@@ -12,17 +30,14 @@
         autofocus
         formControlName="surname"
       />
-    </div>
-
-    <div class="col-md-12 col-xl-4">
-      <label for="name" class="m-2">Imię</label>
-      <input
-        type="text"
-        id="name"
-        class="form-control"
-        placeholder="Imię"
-        formControlName="name"
-      />
+      <span
+        *ngIf="
+          !newContactForm.get('surname').valid &&
+          newContactForm.get('surname').touched
+        "
+        class="help-block"
+        >To pole jest wymagane!</span
+      >
     </div>
     <div class="col-md-12 col-xl-4">
       <label for="phone" class="m-2">Telefon</label>
@@ -33,6 +48,14 @@
         placeholder="Numer telefonu"
         formControlName="phone"
       />
+      <span
+        *ngIf="
+          !newContactForm.get('phone').valid &&
+          newContactForm.get('phone').touched
+        "
+        class="help-block"
+        >Numer telefonu powinien składać się tylko z cyfr (max 15 znaków)!
+      </span>
     </div>
     <div class="col-md-12 col-xl-4">
       <label for="email" class="m-2">E-mail</label>
@@ -43,7 +66,14 @@
         placeholder="email"
         email
         formControlName="email"
-      />
+      /><span
+        *ngIf="
+          !newContactForm.get('email').valid &&
+          newContactForm.get('email').touched
+        "
+        class="help-block"
+        >Proszę wprowadzić poprawny email!</span
+      >
     </div>
   </div>
   <div class="row mt-3">
@@ -60,7 +90,7 @@
         class="btn btn-sm btn-danger m-2"
         (click)="onReset()"
       >
-        Reset
+        Wyczyść
       </button>
       <button
         type="button"

@@ -9,7 +9,11 @@
         id="name"
         formControlName="name"
         class="form-control"
-      />
+      /><span
+        *ngIf="!editForm.get('name').valid && editForm.get('name').touched"
+        class="help-block"
+        >To pole jest wymagane!</span
+      >
     </div>
     <div class="col-md-12 col-xl-4">
       <label for="surname" class="m-2">Nazwisko</label>
@@ -18,7 +22,13 @@
         id="surname"
         formControlName="surname"
         class="form-control"
-      />
+      /><span
+        *ngIf="
+          !editForm.get('surname').valid && editForm.get('surname').touched
+        "
+        class="help-block"
+        >To pole jest wymagane!</span
+      >
     </div>
     <div class="col-md-12 col-xl-4">
       <label for="phone" class="m-2">Telefon </label>
@@ -27,7 +37,11 @@
         id="phone"
         formControlName="phone"
         class="form-control"
-      />
+      /><span
+        *ngIf="!editForm.get('phone').valid && editForm.get('phone').touched"
+        class="help-block"
+        >Numer telefonu powinien składać się tylko z cyfr (max 15 znaków)!
+      </span>
     </div>
     <div class="col-md-12 col-xl-4">
       <label for="email" class="m-2">E-mail </label>
@@ -36,7 +50,11 @@
         id="email"
         formControlName="email"
         class="form-control"
-      />
+      /><span
+        *ngIf="!editForm.get('email').valid && editForm.get('email').touched"
+        class="help-block"
+        >Proszę wprowadzić poprawny email!</span
+      >
     </div>
     <div class="col-xs-12 mt-3">
       <button
