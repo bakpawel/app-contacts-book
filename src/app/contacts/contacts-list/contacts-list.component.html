@@ -1,4 +1,4 @@
-<app-header> <p content>Tu znajdują się Twoje kontakty.</p></app-header>
+<app-header> <p content>This is yours table of contacts</p></app-header>
 
 <table
   *ngIf="contacts.length > 0; else noContactsAlert"
@@ -6,11 +6,11 @@
 >
   <thead class="thead-dark">
     <tr>
-      <th>Lp.</th>
-      <th>Imię</th>
-      <th>Nazwisko</th>
-      <th>Nr Telefonu</th>
-      <th>Akcja</th>
+      <th>Nr</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Phone nr</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -29,14 +29,14 @@
           [routerLink]="['/contact-edit', i]"
         >
           <i class="fa fa-pencil"></i>
-          Edytuj
+          Edit
         </button>
         <button
           class="btn btn-danger btn-sm mt-2 mt-sm-0"
           (click)="removeContact(i, $event)"
         >
           <i class="fa fa-trash-o"></i>
-          Usuń
+          Delete
         </button>
       </td>
     </tr>
@@ -47,7 +47,7 @@
 
 <div class="col d-flex justify-content-center">
   <button class="btn btn-success btn-sm me-3" [routerLink]="['/contact-add']">
-    Dodaj kontakt
+    Add Contact
   </button>
 
   <button
@@ -55,7 +55,7 @@
     class="btn btn-warning btn-sm me-3"
     [disabled]="contacts.length === 0"
   >
-    Ukryj kontakty
+    Hide Contacts
   </button>
 
   <button
@@ -63,7 +63,7 @@
     class="btn btn-primary btn-sm me-3"
     [disabled]="contactsCount"
   >
-    Pokaż kontakty
+    Show Contacts
   </button>
 </div>
 <div class="col d-flex justify-content-center my-2">
@@ -71,15 +71,17 @@
     (click)="onSaveContacts()"
     class="btn btn-secondary btn-sm me-3"
     [disabled]="!contactsCount"
+    title="Blocked for demo purposes. So you'll not override contacts on server. Sorry ;("
+    style="pointer-events: auto"
   >
-    Zapisz Kontakty
+    Save Contacts
   </button>
   <button (click)="onFetchContacts()" class="btn btn-secondary btn-sm me-3">
-    Załaduj Kontakty
+    Fetch Contacts
   </button>
 </div>
 <ng-template #noContactsAlert>
-  <p class="alert alert-warning show" role="alert">Aktualnie brak kontatków.</p>
+  <p class="alert alert-warning show" role="alert">No contacts on the list</p>
 </ng-template>
 <hr />
 <router-outlet></router-outlet>

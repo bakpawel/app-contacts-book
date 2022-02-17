@@ -1,9 +1,9 @@
-<app-header><p content>Edycja kontaktu</p></app-header>
+<app-header><p content>Edit Mode</p></app-header>
 
 <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
   <div class="row form-group">
     <div class="col-md-12 col-xl-4">
-      <label for="name" class="m-2">Imię</label>
+      <label for="name" class="m-2">Name</label>
       <input
         type="text"
         id="name"
@@ -12,11 +12,11 @@
       /><span
         *ngIf="!editForm.get('name').valid && editForm.get('name').touched"
         class="help-block"
-        >To pole jest wymagane!</span
+        >This field is required!</span
       >
     </div>
     <div class="col-md-12 col-xl-4">
-      <label for="surname" class="m-2">Nazwisko</label>
+      <label for="surname" class="m-2">Surname</label>
       <input
         type="text"
         id="surname"
@@ -27,11 +27,11 @@
           !editForm.get('surname').valid && editForm.get('surname').touched
         "
         class="help-block"
-        >To pole jest wymagane!</span
+        >This field is required!</span
       >
     </div>
     <div class="col-md-12 col-xl-4">
-      <label for="phone" class="m-2">Telefon </label>
+      <label for="phone" class="m-2">Phone number</label>
       <input
         type="text"
         id="phone"
@@ -40,7 +40,7 @@
       /><span
         *ngIf="!editForm.get('phone').valid && editForm.get('phone').touched"
         class="help-block"
-        >Numer telefonu powinien składać się tylko z cyfr (max 15 znaków)!
+        >Phone number should contains numbers only! (max 15 numbers!)
       </span>
     </div>
     <div class="col-md-12 col-xl-4">
@@ -53,7 +53,7 @@
       /><span
         *ngIf="!editForm.get('email').valid && editForm.get('email').touched"
         class="help-block"
-        >Proszę wprowadzić poprawny email!</span
+        >This e-mail is not correct.</span
       >
     </div>
     <div class="col-xs-12 mt-3">
@@ -62,10 +62,10 @@
         class="btn btn-success m-2"
         [disabled]="!editForm.valid"
       >
-        Zapisz
+        Save
       </button>
       <button type="button" class="btn btn-danger m-2" (click)="onBack()">
-        Anuluj
+        Cancel
       </button>
     </div>
   </div>

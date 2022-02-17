@@ -1,14 +1,14 @@
-<app-header><p content>Dodawanie nowego kontaktu.</p></app-header>
+<app-header><p content>Add new contact</p></app-header>
 
 <form [formGroup]="newContactForm" (ngSubmit)="onSubmit()">
   <div class="row form-group">
     <div class="col-md-12 col-xl-4">
-      <label for="name" class="m-2">Imię</label>
+      <label for="name" class="m-2">Name</label>
       <input
         type="text"
         id="name"
         class="form-control"
-        placeholder="Imię"
+        placeholder="Name"
         formControlName="name"
       />
       <span
@@ -17,17 +17,16 @@
           newContactForm.get('name').touched
         "
         class="help-block"
-        >To pole jest wymagane!</span
+        >This field is required!</span
       >
     </div>
     <div class="col-md-12 col-xl-4">
-      <label for="surname" class="m-2">Nazwisko</label>
+      <label for="surname" class="m-2">Surname</label>
       <input
         type="text"
         id="surname"
         class="form-control"
-        placeholder="Nazwisko"
-        autofocus
+        placeholder="Surname"
         formControlName="surname"
       />
       <span
@@ -36,16 +35,16 @@
           newContactForm.get('surname').touched
         "
         class="help-block"
-        >To pole jest wymagane!</span
+        >This field is required!</span
       >
     </div>
     <div class="col-md-12 col-xl-4">
-      <label for="phone" class="m-2">Telefon</label>
+      <label for="phone" class="m-2">Phone number</label>
       <input
         type="text"
         id="phone"
         class="form-control"
-        placeholder="Numer telefonu"
+        placeholder="Phone number"
         formControlName="phone"
       />
       <span
@@ -54,7 +53,7 @@
           newContactForm.get('phone').touched
         "
         class="help-block"
-        >Numer telefonu powinien składać się tylko z cyfr (max 15 znaków)!
+        >Phone number should contains numbers only! (max 15 numbers!)
       </span>
     </div>
     <div class="col-md-12 col-xl-4">
@@ -63,7 +62,7 @@
         type="text"
         id="surname"
         class="form-control"
-        placeholder="email"
+        placeholder="E-mail"
         email
         formControlName="email"
       /><span
@@ -72,7 +71,7 @@
           newContactForm.get('email').touched
         "
         class="help-block"
-        >Proszę wprowadzić poprawny email!</span
+        >This e-mail is not correct!</span
       >
     </div>
   </div>
@@ -83,21 +82,21 @@
         class="btn btn-sm btn-success m-2"
         [disabled]="!newContactForm.valid"
       >
-        Zapisz
+        Save
       </button>
       <button
         type="button"
         class="btn btn-sm btn-danger m-2"
         (click)="onReset()"
       >
-        Wyczyść
+        Reset
       </button>
       <button
         type="button"
         class="btn btn-sm btn-primary m-2"
         (click)="onBack()"
       >
-        Wstecz
+        Cancel
       </button>
     </div>
   </div>

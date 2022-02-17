@@ -1,7 +1,7 @@
-<p>Szczegóły dla kontaktu {{ id + 1 }}</p>
+<p>Details of contact nr {{ id + 1 }}</p>
 
-<p>Nazwisko: {{ contactDetails.surname }}</p>
-<p>Imię: {{ contactDetails.name }}</p>
-<p>Telefon: {{ contactDetails.phone }}</p>
-<p *ngIf="contactDetails.email">Email: {{ contactDetails.email }}</p>
-<button class="btn btn-primary mb-3" [routerLink]="['/contacts']">Ukryj</button>
+<p>Surname: {{ contactDetails.surname }}</p>
+<p>Name: {{ contactDetails.name }}</p>
+<p>Phone number: {{ contactDetails.phone }}</p>
+<p *ngIf="contactDetails.email">E-mail: {{ contactDetails.email }}</p>
+<button class="btn btn-primary mb-3" [routerLink]="['/contacts']">Hide</button>
