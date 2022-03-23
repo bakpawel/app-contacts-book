@@ -1,27 +1,56 @@
-# AppContactsBook
+# ContactsBook - Contacts Book Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+##### Created with Angular, Bootstrap, Firebase and FontAwesome
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This is full CRUD application created for practice Angular.
+You can fetch contacts from firebase database, edit, delete each of them and create a new one.
+Some fields are not required and visible in table, thats why you should check 'contact details'
+\*For demo purposes, saving contacts to firebase is blocked.
 
-## Code scaffolding
+##### App is fully responsive
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Built with
 
-## Build
+Project is created with:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Angular 11.2.14
+- Bootstrap 5.0
+- FontAwesome 4.7
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- fetching data from firebase database
+- create new contact
+- edit existing contact
+- delate contacts
+- hide contacts
+- show hidden contacts
+- show more details about contact
+- hide contact details
 
-## Running end-to-end tests
+## Screenshots
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![Example screenshot](./img/screenshot.png)
 
-## Further help
+## Launch
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Live Demo
+
+You can see deployed live demo [_here_](https://contact-book-6d19e.firebaseapp.com)
+
+### Development server
+
+Clone this repo to your desktop and run `npm install` to install all the dependencies.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+## To-do
+
+- sign up and log in page
+- firebase authentication with google account.
+- subtle animations
+
+## Contact
+
+Created by [@PawelBak](https://pawel-bak-portfolio.web.app/) - feel free to contact me!
