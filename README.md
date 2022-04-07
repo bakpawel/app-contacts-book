@@ -29,6 +29,7 @@ Project is created with:
 - show hidden contacts
 - show more details about contact
 - hide contact details
+- added some subtle animations during showing table and removing contacts
 
 ## Screenshots
 
