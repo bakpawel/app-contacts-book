@@ -11,21 +11,6 @@ import { ContactsService } from '../contacts.service';
   templateUrl: './contacts-list.component.html',
   styleUrls: ['./contacts-list.component.css'],
   animations: [
-    // trigger('contactItem',[
-    //   state('in', 
-    //     style({opacity: 1})
-    //   ),
-    //   transition('void=>*', [
-    //     style({opacity: 0}),
-    //     animate(300)
-    //   ]),
-    //   transition('*=>void', [
-    //     animate(300, style({
-    //       opacity: 0, 
-    //       transform: 'translateX(100px)'
-    //     }))
-    //   ]),
-    // ]),
     trigger('contactItem',[
       state('in', style({opacity: 1})),
       state('delete', style({opacity: 0,transform: 'translateX(100px)'})),      
@@ -78,6 +63,7 @@ export class ContactsListComponent implements OnInit, OnDestroy {
   loadContacts(): void {
     this.contacts = this.contactsService.getContacts();
     this.contactsCount = this.contacts.length;
+    this.state ="in";
   }
   onSaveContacts() {
     this.dataStorageService.storeContacts();
