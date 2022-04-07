@@ -18,6 +18,7 @@
       *ngFor="let contact of contacts; let i = index"
       class="pe-auto"
       (click)="goToContactDetails(i, $event)"
+      [@contactItem]="state"
     >
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ contact.name }}</td>
@@ -84,4 +85,4 @@
   <p class="alert alert-warning show" role="alert">No contacts on the list</p>
 </ng-template>
 <hr />
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>

@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { ContactsService } from './contacts/contacts.service';
 import { ContactsModule } from './contacts/contacts.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule}  from '@angular/platform-browser/animations'
+ 
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ContactsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [ContactsService],
   bootstrap: [AppComponent]

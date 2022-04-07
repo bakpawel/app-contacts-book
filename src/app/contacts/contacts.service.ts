@@ -35,7 +35,6 @@ export class ContactsService {
   }
 
   deleteContact(index: number) {
-    console.log('to jest index' + index);
     this.contacts.splice(index, 1);
     this.contactChanged.next(this.contacts.slice());
   }

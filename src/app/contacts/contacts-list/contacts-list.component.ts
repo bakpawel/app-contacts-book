@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,8 +10,36 @@ import { ContactsService } from '../contacts.service';
   selector: 'app-contacts-list',
   templateUrl: './contacts-list.component.html',
   styleUrls: ['./contacts-list.component.css'],
+  animations: [
+    // trigger('contactItem',[
+    //   state('in', 
+    //     style({opacity: 1})
+    //   ),
+    //   transition('void=>*', [
+    //     style({opacity: 0}),
+    //     animate(300)
+    //   ]),
+    //   transition('*=>void', [
+    //     animate(300, style({
+    //       opacity: 0, 
+    //       transform: 'translateX(100px)'
+    //     }))
+    //   ]),
+    // ]),
+    trigger('contactItem',[
+      state('in', style({opacity: 1})),
+      state('delete', style({opacity: 0,transform: 'translateX(100px)'})),      
+      state('delateAll', style({opacity: 0})),
+      
+      
+    transition('void=>*', [style({opacity: 0}), animate(300)]),
+    transition('in=>void', animate(300, style({opacity: 0,transform: 'translateX(100px)'}))),
+    transition('in=>deleteAll', [style({opacity: 1}), animate(300)])
+    ]),
+  ]
 })
 export class ContactsListComponent implements OnInit, OnDestroy {
+  state;
   contacts: {}[] = this.contactsService.contacts;
   subscription: Subscription;
 
@@ -35,6 +64,7 @@ export class ContactsListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    
   }
   hideContacts() {
     this.contacts = [];
@@ -54,7 +84,9 @@ export class ContactsListComponent implements OnInit, OnDestroy {
   }
 
   onFetchContacts() {
+    this.state = 'deleteAll';
     this.dataStorageService.fetchContacts().subscribe(() => {
+      this.state ="in";
       this.loadContacts();
     });
   }
